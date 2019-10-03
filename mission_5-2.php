@@ -129,6 +129,7 @@ elseif(empty($_POST['comment'])==FALSE && empty($_POST['com_pass'])==FALSE){
 		$sql -> bindParam(':postedAt', $postedAt, PDO::PARAM_STR);
 		$sql -> bindParam(':password', $password, PDO::PARAM_STR);
 		$name = $_POST['name'];
+		$name = mb_convert_encoding($name, "UTF-8", "auto");
 		$comment = $_POST['comment'];
 		$postedAt = date("Y年m月d日 H:i:s");
 		$password = $_POST['com_pass'];
